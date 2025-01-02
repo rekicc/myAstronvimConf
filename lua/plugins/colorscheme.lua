@@ -8,7 +8,7 @@ return {
       styles = {
         conditionals = "italic",
         virtual_text = "italic",
-        comments = "italic",
+        -- comments = "italic",
       },
       options = {
         transparency = true,
