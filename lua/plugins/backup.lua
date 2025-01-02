@@ -46,3 +46,16 @@ if true then return {} end
 
 --- 同时替换开括号与闭括号
 --{ "kylechui/nvim-surround", version = "*", event = "VeryLazy" },
+
+--- Sessionc持久化插件
+-- { "folke/persistence.nvim",
+--   event = "BufReadPre",
+--   opts = {},
+--   -- stylua: ignore
+--   keys = {
+--     { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
+--     { "<leader>qS", function() require("persistence").select() end,desc = "Select Session" },
+--     { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
+--     { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
+--   },
+-- }
