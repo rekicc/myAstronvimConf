@@ -16,6 +16,6 @@ return {
   { import = "astrocommunity.color.tint-nvim" },
   -- { import = "astrocommunity.color.transparent-nvim" },
 
-  --- 补全功能换成blink.cmp
-  { import = "astrocommunity.completion.blink-cmp" },
+  --- blink-cmp补全插件
+  -- { import = "astrocommunity.completion.blink-cmp" },
 }
