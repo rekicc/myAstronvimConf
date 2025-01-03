@@ -11,7 +11,11 @@ return {
   -- import/override with your plugins folder
   { import = "astrocommunity.pack.python" },
   -- { import = "astrocommunity.pack.go" },
+
   { import = "astrocommunity.color.twilight-nvim" },
   { import = "astrocommunity.color.tint-nvim" },
   -- { import = "astrocommunity.color.transparent-nvim" },
+
+  --- 补全功能换成blink.cmp
+  { import = "astrocommunity.completion.blink-cmp" },
 }

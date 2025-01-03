@@ -1,7 +1,7 @@
 --[[
 --来源: https://github.com/Alexis12119/nvim-config/blob/main/lua/plugins/nvim-cmp.lua
 --]]
-
+if true then return {} end
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
