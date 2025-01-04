@@ -4,6 +4,10 @@ return {
     opts = {
       highlights = {
         PmenuSel = { bg = "#1A5CA4" },
+        TelescopeTitle = { fg = "#64ff81" },
+        LineNr = { fg = "#54950d", bg = "#000000" },
+        FoldColumn = { fg = "#54950d", bg = "#000000" },
+        Visual = { bg = "#063870" },
       },
       styles = {
         conditionals = "italic",
@@ -11,7 +15,7 @@ return {
         -- comments = "italic",
       },
       options = {
-        transparency = true,
+        transparency = false,
         -- highlights_inactive_windows = true,
       },
     },
@@ -33,8 +37,12 @@ return {
   },
   { "AstroNvim/astrotheme", opts = {
     style = {
-      transparent = true,
+      transparent = false,
       inactive = false,
     },
+  } },
+
+  { "folke/tokyonight.nvim", opts = {
+    transparent = false,
   } },
 }
