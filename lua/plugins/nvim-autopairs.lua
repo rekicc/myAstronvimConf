@@ -1,24 +1,7 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- You can also add or configure plugins by creating files in this `plugins/` folder
--- Here are some examples:
-
 ---@type LazySpec
 return {
-
-  -- == Examples of Adding Plugins ==
-
-  { "andweeb/presence.nvim", enabled = false },
-  {
-    "ray-x/lsp_signature.nvim",
-    enabled = false,
-    event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
-  },
-
   {
     "windwp/nvim-autopairs",
-    disable = true,
     config = function(plugin, opts)
       require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
       -- add more custom autopairs configuration such as custom rules
@@ -44,6 +27,17 @@ return {
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")
       )
+    end,
+    opts = function(_, opts)
+      return vim.tbl_deep_extend("force", opts, {
+        map_c_h = true,
+        map_c_w = true,
+        map_bs = true,
+        check_ts = true,
+        enable_abbr = true,
+        map_cr = false,
+        enable_check_bracket_line = true,
+      })
     end,
   },
 }
