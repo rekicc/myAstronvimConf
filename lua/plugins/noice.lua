@@ -10,7 +10,7 @@ return {
         ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
       },
       hover = { enabled = false },
-      signature = { enabled = true },
+      signature = { enabled = false },
       message = { enabled = true },
     },
     presets = {
