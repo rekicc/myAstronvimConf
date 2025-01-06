@@ -9,6 +9,9 @@
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
+
+  version = false,
+  branch = "v2",
   opts = {
     -- Configure core features of AstroNvim
     features = {
@@ -59,7 +62,7 @@ return {
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
-        autoformat = false,
+        autoformat = true,
       },
     },
     -- Mappings can be configured through AstroCore as well.

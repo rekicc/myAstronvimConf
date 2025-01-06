@@ -9,6 +9,9 @@ if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
+
+  version = false,
+  branch = "v3",
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {

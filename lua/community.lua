@@ -23,4 +23,7 @@ return {
 
   --- 支持.vscode/launch.json的json5语法
   { import = "astrocommunity.utility.lua-json5" },
+
+  --- 关闭nvim-dap自动加载
+  -- { import = "astrocommunity.utility.mason-tool-installer-nvim" },
 }
