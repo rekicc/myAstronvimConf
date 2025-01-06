@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -21,22 +21,45 @@ return {
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
-      virtual_text = true,
+      virtual_text = { prefix = "" },
       underline = true,
+      update_in_insert = false,
     },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
-        wrap = false, -- sets vim.opt.wrap
+        wrap = true, -- sets vim.opt.wrap
+        fillchars = {
+          fold = " ",
+          foldsep = " ",
+          diff = "╱",
+          eob = " ",
+        },
+        conceallevel = 2,
+        list = false,
+        listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+        showbreak = "↪ ",
+        splitkeep = "screen",
+        swapfile = false,
+        scrolloff = 5,
+        -- windows
+        winwidth = 10,
+        winminwidth = 10,
+        equalalways = false,
+        smoothscroll = true,
+        foldexpr = "v:lua.require'ui'.foldexpr()",
+        foldmethod = "expr",
+        foldtext = "",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        autoformat = false,
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -66,6 +89,31 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+    },
+    autocmds = {
+      auto_turnoff_paste = {
+        {
+          event = "InsertLeave",
+          pattern = "*",
+          command = "set nopaste",
+        },
+      },
+      auto_close_molten_output = {
+        {
+          event = "FileType",
+          pattern = { "molten_output" },
+          callback = function(event)
+            vim.bo[event.buf].buflisted = false
+            vim.schedule(function()
+              vim.keymap.set("n", "q", function() vim.cmd "MoltenHideOutput" end, {
+                buffer = event.buf,
+                silent = true,
+                desc = "Quit buffer",
+              })
+            end)
+          end,
+        },
       },
     },
   },
