@@ -10,7 +10,7 @@ return {
       require("mini.icons").setup()
       require("mini.surround").setup()
       -- require("mini.ai").setup()
-      require("mini.jump").setup()
+      -- require("mini.jump").setup()
       -- require("mini.sessions").setup()
     end,
   },
