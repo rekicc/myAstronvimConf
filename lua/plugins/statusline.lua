@@ -95,6 +95,7 @@ return {
           padding = {
             right = 1,
           },
+          hl = { fg = "#000000", bold = true },
         },
         --- 在两个component之间添加一个空白
         -- status.component.builder {
@@ -135,6 +136,7 @@ return {
             separator = "left",
             color = { main = "diag_HINT", right = "file_info_bg" },
           },
+          hl = { fg = "#000000", bold = true },
         },
         -- add a component for the current git branch if it exists and use no separator for the sections
         status.component.git_branch {
@@ -190,7 +192,8 @@ return {
               -- add padding after icon
               padding = { right = 1 },
               -- set the foreground color to be used for the icon
-              hl = { fg = "bg" },
+              -- hl = { fg = "bg" },
+              hl = { fg = "#000000", bold = true },
               -- use the right separator and define the background color
               surround = { separator = "right", color = "folder_icon_bg" },
             },
@@ -225,7 +228,8 @@ return {
             -- add padding after icon
             padding = { right = 1 },
             -- set the icon foreground
-            hl = { fg = "bg" },
+            -- hl = { fg = "bg" },
+            hl = { fg = "#000000", bold = true },
             -- use the right separator and define the background color
             -- as well as the color to the left of the separator
             surround = {

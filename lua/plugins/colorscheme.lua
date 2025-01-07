@@ -21,7 +21,7 @@ return {
       },
       options = {
         transparency = false,
-        -- highlights_inactive_windows = true,
+        -- highlight_inactive_windows = true,
       },
     },
   },
