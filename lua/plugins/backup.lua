@@ -16,28 +16,6 @@ if true then return {} end
 --- folke大神的插件,好像是用于开发neovim插件的插件,没搞懂怎么用
 --{ "folke/lazydev.nvim", ft = "lua" },
 
---- customize alpha options
--- {
---   "goolord/alpha-nvim",
---   opts = function(_, opts)
---     -- customize the dashboard header
---     opts.section.header.val = {
---       " █████  ███████ ████████ ██████   ██████",
---       "██   ██ ██         ██    ██   ██ ██    ██",
---       "███████ ███████    ██    ██████  ██    ██",
---       "██   ██      ██    ██    ██   ██ ██    ██",
---       "██   ██ ███████    ██    ██   ██  ██████",
---       " ",
---       "    ███    ██ ██    ██ ██ ███    ███",
---       "    ████   ██ ██    ██ ██ ████  ████",
---       "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
---       "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
---       "    ██   ████   ████   ██ ██      ██",
---     }
---     return opts
---   end,
--- },
-
 ---
 -- { "voldikss/vim-floaterm" },
 

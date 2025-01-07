@@ -37,5 +37,14 @@ return {
     config = function() require("lsp_signature").setup() end,
   },
 
-  { "stevearc/dressing.nvim", enabled = false },
+  --------------------------astronvim自带插件关闭------------------------------
+  { "stevearc/dressing.nvim", enabled = true },
+  --- 自动闭合html之类文件的tag
+  { "windwp/nvim-ts-autotag", enabled = false },
+  --- 在一种类型的文件中内嵌另一种类型的情况下, 进行注释
+  { "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
+  --- 补全提示框显示各个补全项的类型, V5版本默认已经删除这个插件
+  { "onsails/lspkind.nvim", enabled = false },
+  --- 在颜色代码下显示对应的颜色, V5版本换成了nvim-highlight-colors
+  { "NvChad/nvim-colorizer.lua", enabled = false },
 }

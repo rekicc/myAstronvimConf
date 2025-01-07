@@ -1,6 +1,6 @@
 --- 来源: https://github.com/chaozwn/astronvim_user/blob/astro_v4/lua/plugins/nvim-lint.lua
 
--- if true then return {} end
+if true then return {} end
 
 return {
   {

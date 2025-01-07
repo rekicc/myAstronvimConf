@@ -1,8 +1,6 @@
 --- 来源: https://github.com/chaozwn/astronvim_user/blob/astro_v4/lua/plugins/yazi.lua
 --- 作用: 使用yazi进行文件浏览
 
--- if true then return {} end
-
 if true then return {} end
 ---@type LazySpec
 return {

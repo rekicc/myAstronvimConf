@@ -1,6 +1,7 @@
---[[
---  来源: https://github.com/chaozwn/astronvim_user/blob/astro_v4/lua/plugins/overseer.lua
---]]
+---  来源: https://github.com/chaozwn/astronvim_user/blob/astro_v4/lua/plugins/overseer.lua
+
+-- if true then return {} end
+
 return {
   "stevearc/overseer.nvim",
   cmd = {

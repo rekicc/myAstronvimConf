@@ -1,7 +1,7 @@
 --- 来源: https://github.com/chaozwn/astronvim_user/blob/astro_v4/lua/plugins/visual-multi.lua
 --- 作用: 虚拟多光标
 
--- if true then return {} end
+if true then return {} end
 
 ---@type LazySpec
 return {

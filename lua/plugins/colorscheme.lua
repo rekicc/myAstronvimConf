@@ -3,10 +3,15 @@ return {
     "olimorris/onedarkpro.nvim",
     opts = {
       highlights = {
+        --- 弹出窗口中的选中项
         PmenuSel = { bg = "#1A5CA4" },
+        --- Telescope窗口的标题
         TelescopeTitle = { fg = "#64ff81" },
+        --- 行号
         LineNr = { fg = "#54950d", bg = "#000000" },
+        --- 折叠栏
         FoldColumn = { fg = "#54950d", bg = "#000000" },
+        --- visual模式选中部分
         Visual = { bg = "#063870" },
       },
       styles = {
@@ -44,5 +49,5 @@ return {
 
   { "folke/tokyonight.nvim", opts = {
     transparent = false,
-  } },
+  }, lazy = true },
 }

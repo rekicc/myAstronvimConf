@@ -1,7 +1,7 @@
 --- 来源: https://github.com/chaozwn/astronvim_user/blob/astro_v4/lua/plugins/conform.lua
 --- 作用: 格式化代码
 
--- if true then return {} end
+if true then return {} end
 
 return {
   "stevearc/conform.nvim",
