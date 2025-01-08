@@ -66,4 +66,5 @@ return {
   { "folke/todo-comments.nvim", event = "VeryLazy" },
   --- 将非焦点窗口调暗
   { "levouh/tint.nvim", event = "VeryLazy" },
+  { "folke/which-key.nvim", opts = { preset = "modern" } },
 }
