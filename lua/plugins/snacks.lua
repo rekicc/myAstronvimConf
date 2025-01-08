@@ -26,6 +26,29 @@ return {
       notifier = { enabled = true },
       scroll = { enabled = true },
       scope = { enabled = true },
+      dim = { enabled = true },
+      statuscolumn = { enabled = true },
+      notify = { enabled = true },
+    },
+    dependencies = {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<leader>td"] = {
+              function()
+                local enabled = require("snacks").dim.enabled
+                if enabled then
+                  require("snacks").dim.disable()
+                else
+                  require("snacks").dim.enable()
+                end
+              end,
+              desc = "Toggle dim",
+            },
+          },
+        },
+      },
     },
   },
   {
