@@ -27,7 +27,6 @@ return {
       scroll = { enabled = true },
       scope = { enabled = true },
       dim = { enabled = true },
-      statuscolumn = { enabled = true },
       notify = { enabled = true },
     },
     dependencies = {
