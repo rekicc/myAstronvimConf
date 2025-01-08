@@ -9,6 +9,7 @@ return {
   cmd = "ConformInfo",
   specs = {
     { "AstroNvim/astrolsp", optional = true, opts = { formatting = { disabled = true } } },
+    { "jay-babu/mason-null-ls.nvim", optional = true, opts = { methods = { formatting = false } } },
     {
       "AstroNvim/astrocore",
       opts = function(_, opts)
