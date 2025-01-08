@@ -13,6 +13,7 @@ return {
         FoldColumn = { fg = "#54950d", bg = "#000000" },
         --- visual模式选中部分
         Visual = { bg = "#063870" },
+        LspInlayHint = { fg = "#999999" },
       },
       styles = {
         conditionals = "italic",
