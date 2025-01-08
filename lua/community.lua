@@ -12,7 +12,8 @@ return {
   { import = "astrocommunity.pack.python" },
   -- { import = "astrocommunity.pack.go" },
 
-  { import = "astrocommunity.color.twilight-nvim" },
+  --- 将当前聚焦的代码外的部分暗淡化
+  -- { import = "astrocommunity.color.twilight-nvim" },
   { import = "astrocommunity.color.tint-nvim" },
   -- { import = "astrocommunity.color.transparent-nvim" },
 
