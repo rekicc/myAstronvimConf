@@ -48,16 +48,16 @@ return {
         }
       end,
     },
-    {
-      "zbirenbaum/copilot.lua",
-      optional = true,
-      opts = {
-        filetypes = {
-          ["grug-far"] = false,
-          ["grug-far-history"] = false,
-        },
-      },
-    },
+    -- {
+    --   "zbirenbaum/copilot.lua",
+    --   optional = true,
+    --   opts = {
+    --     filetypes = {
+    --       ["grug-far"] = false,
+    --       ["grug-far-history"] = false,
+    --     },
+    --   },
+    -- },
   },
   ---@param opts GrugFarOptionsOverride
   -- NOTE: Wrapping opts into a function, because `astrocore` can set vim options

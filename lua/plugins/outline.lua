@@ -1,7 +1,17 @@
 --outline,设置拷贝自LazyVim->Extras->editor->outline下的配置文件,进行了本地适配性改动
 return {
   "hedyhli/outline.nvim",
-  keys = { { "<leader>lo", "<cmd>Outline<cr>", desc = "Toggle Outline" } },
+  -- keys = { { "<leader>lo", "<cmd>Outline<cr>", desc = "Toggle Outline" } },
+  dependencies = {
+    "astronvim/astrocore",
+    opts = {
+      mappings = {
+        n = {
+          ["<Leader>lo"] = { "<cmd>Outline<CR>", desc = "Toggle outline" },
+        },
+      },
+    },
+  },
   cmd = "Outline",
   opts = function()
     local defaults = require("outline.config").defaults
