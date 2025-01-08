@@ -1,7 +1,7 @@
 --- 来源: https://github.com/chaozwn/astronvim_user/blob/astro_v4/lua/plugins/conform.lua
 --- 作用: 格式化代码
 
-if true then return {} end
+-- if true then return {} end
 
 return {
   "stevearc/conform.nvim",
@@ -13,7 +13,7 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = opts.mappings or {}
-        maps.n["<Leader>lI"] = { function() vim.cmd.ConformInfo() end, desc = "Show Conform Info" }
+        maps.n["<Leader>lc"] = { function() vim.cmd.ConformInfo() end, desc = "Show Conform Info" }
         maps.n["<Leader>lf"] = { function() vim.cmd.Format() end, desc = "Format buffer" }
         maps.n["<Leader>uf"] = {
           function()
