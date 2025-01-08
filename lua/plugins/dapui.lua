@@ -2,6 +2,7 @@
 return {
   {
     "theHamsta/nvim-dap-virtual-text",
+    lazy = true,
     opts = {
       enabled = true,
       enable_commands = true,
@@ -20,6 +21,7 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
+    lazy = true,
     dependencies = {
       "nvim-neotest/nvim-nio",
       "theHamsta/nvim-dap-virtual-text",
