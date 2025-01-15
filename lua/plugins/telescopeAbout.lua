@@ -13,22 +13,18 @@ return {
         },
       },
     },
-    dependencies = {
-      { "nvim-telescope/telescope-fzf-native.nvim" },
-      { "nvim-telescope/telescope-frecency.nvim" },
-    },
   },
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-    lazy = true,
-    config = function() require("telescope").load_extension "frecency" end,
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    lazy = true,
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
-    config = function() require("telescope").load_extension "fzf" end,
-  },
+  -- {
+  --   "nvim-telescope/telescope-frecency.nvim",
+  --   lazy = true,
+  --   config = function() require("telescope").load_extension "frecency" end,
+  -- },
+  -- {
+  --   "nvim-telescope/telescope-fzf-native.nvim",
+  --   lazy = true,
+  --   build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+  --   config = function() require("telescope").load_extension "fzf" end,
+  -- },
   --懒加载,未使用,要启用的话需要加到telescope的dependencies中,或者手动load
   {
     "benfowler/telescope-luasnip.nvim",
