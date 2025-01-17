@@ -9,8 +9,6 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   -- import/override with your plugins folder
-  { import = "astrocommunity.pack.python" },
-  -- { import = "astrocommunity.pack.go" },
 
   --- 将当前聚焦的代码外的部分暗淡化
   -- { import = "astrocommunity.color.twilight-nvim" },
