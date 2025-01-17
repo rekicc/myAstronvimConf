@@ -1,3 +1,4 @@
 TODO: 查看鼠须管输入法能不能在中文输入环境下触发《C-[》快捷键,从而退出insert模式
 TODO: 搞清楚none-ls、mason-none-ls在astronvim中是如何发挥作用的, none-ls与nvim-lint有何区别, 如何可以完美过度到使用nvim-lint(因为nvim-lint启动速度的确快)
 TODO: 搞清楚neovim的lsp的工作原理
+TODO: flatten.nvim与neotest.nvim是如何相互影响的
