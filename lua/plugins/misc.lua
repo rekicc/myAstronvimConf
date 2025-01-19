@@ -49,7 +49,7 @@ return {
     config = function() require("lsp_signature").setup() end,
   },
 
-  --------------------------astronvim自带插件关闭------------------------------
+  --------------------------关闭astronvim自带插件------------------------------
   --- UI改进插件(?)
   { "stevearc/dressing.nvim", enabled = false },
   --- 自动闭合html之类文件的tag
