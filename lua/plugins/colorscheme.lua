@@ -8,12 +8,13 @@ return {
         --- Telescope窗口的标题
         TelescopeTitle = { fg = "#64ff81" },
         --- 行号
-        LineNr = { fg = "#54950d", bg = "#000000" },
+        LineNr = { fg = "#54950d", bg = "none" },
         --- 折叠栏
-        FoldColumn = { fg = "#54950d", bg = "#000000" },
+        FoldColumn = { fg = "#54950d", bg = "none" },
         --- visual模式选中部分
         Visual = { bg = "#063870" },
         LspInlayHint = { fg = "#999999" },
+        SignColumn = { bg = "none" },
       },
       styles = {
         conditionals = "italic",
@@ -21,7 +22,7 @@ return {
         -- comments = "italic",
       },
       options = {
-        transparency = false,
+        transparency = true,
         -- highlight_inactive_windows = true,
       },
     },
