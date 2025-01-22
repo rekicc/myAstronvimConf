@@ -62,6 +62,8 @@ return {
   { "NvChad/nvim-colorizer.lua", enabled = false },
   --- 自动显示当前光标下的单词在文件中的其他位置
   { "RRethy/vim-illuminate", enabled = false },
+
+  -------------------------更改astronvim默认插件设置---------------------------
   --- 高亮TODO
   { "folke/todo-comments.nvim", event = "VeryLazy" },
   --- 将非焦点窗口调暗
