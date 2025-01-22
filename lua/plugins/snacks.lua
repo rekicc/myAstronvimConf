@@ -28,26 +28,42 @@ return {
       scope = { enabled = true },
       dim = { enabled = true },
       notify = { enabled = true },
+      picker = { enabled = true },
+      statuscolumn = {
+        enabled = true,
+        left = { "mark", "sign" },
+        right = { "fold", "git" },
+        folds = {
+          open = false,
+          git_hl = false,
+        },
+        git = {
+          patterns = { "GitSign", "MiniDiffSign" },
+        },
+        refresh = 50,
+      },
     },
     dependencies = {
       "AstroNvim/astrocore",
-      opts = {
-        mappings = {
-          n = {
-            ["<leader>td"] = {
-              function()
-                local enabled = require("snacks").dim.enabled
-                if enabled then
-                  require("snacks").dim.disable()
-                else
-                  require("snacks").dim.enable()
-                end
-              end,
-              desc = "Toggle dim",
-            },
-          },
-        },
-      },
+      opts = function(_, opts)
+        local sn = require "snacks"
+        local maps = opts.mappings or {}
+        maps.n["<Leader>td"] = {
+          function()
+            local enabled = sn.dim.enabled
+            if enabled then
+              sn.dim.disable()
+            else
+              sn.dim.enable()
+            end
+          end,
+          desc = "Toggle dim",
+        }
+        maps.n["<Leader>fk"] = {
+          function() sn.picker.keymaps() end,
+          desc = "find keymaps",
+        }
+      end,
     },
   },
   {
@@ -56,4 +72,5 @@ return {
   },
   { "rcarriga/nvim-notify", enabled = false },
   { "NMAC427/guess-indent.nvim", enabled = false },
+  { "kevinhwang91/nvim-ufo", enabled = false },
 }
