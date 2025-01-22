@@ -152,6 +152,34 @@ return {
     end,
   },
   {
+    "saghen/blink.cmp",
+    optional = true,
+    dependencies = {
+      {
+        "Snikimonkd/cmp-go-pkgs",
+        ft = "go",
+        enabled = vim.fn.executable "go" == 1,
+      },
+    },
+    opts = function(_, opts)
+      return require("astrocore").extend_tbl(opts, {
+        sources = {
+          compat = require("astrocore").list_insert_unique(opts.sources.compat or {}, { "go_pkgs" }),
+          providers = {
+            go_pkgs = {
+              kind = "Gopkgs",
+              score_offset = 100,
+              async = true,
+              enabled = function()
+                return vim.fn.executable "go" == 1 and require("cmp_go_pkgs")._check_if_inside_imports()
+              end,
+            },
+          },
+        },
+      })
+    end,
+  },
+  {
     "olexsmir/gopher.nvim",
     ft = "go",
     enabled = vim.fn.executable "go" == 1,

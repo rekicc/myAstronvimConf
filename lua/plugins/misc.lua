@@ -44,7 +44,7 @@ return {
   --- 显示函数签名
   {
     "ray-x/lsp_signature.nvim",
-    enabled = true,
+    enabled = false,
     event = "BufRead",
     config = function() require("lsp_signature").setup() end,
   },

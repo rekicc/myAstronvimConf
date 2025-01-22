@@ -1,4 +1,4 @@
--- if true then return {} end
+if true then return {} end
 
 local function has_words_before()
   local line, col = (unpack or table.unpack)(vim.api.nvim_win_get_cursor(0))
