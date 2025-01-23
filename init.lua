@@ -19,7 +19,7 @@ if not pcall(require, "lazy") then
 end
 
 require "lazy_setup"
-require "polish"
+-- require "polish"
 
 -- for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
 --   dofile(vim.g.base46_cache .. v)
