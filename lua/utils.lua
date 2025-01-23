@@ -2,6 +2,29 @@
 local M = {}
 local is_win = vim.loop.os_uname().version:find "Windows"
 
+function M.realpath(path)
+  if path == "" or path == nil then return nil end
+  path = vim.uv.fs_realpath(path) or path
+  return require("astrocore.rooter").normpath(path)
+end
+
+function M.get_rooter()
+  local roots = require("astrocore.rooter").detect(0, false)
+  return roots[1] and roots[1].paths[1] or vim.uv.cwd()
+end
+
+function M.cwd() return M.realpath(vim.uv.cwd()) or "" end
+
+function M.size(max, value) return value > 1 and math.min(value, max) or math.floor(max * value) end
+
+function M.update_bacon_prefs()
+  local target_file = string.gsub(vim.fn.system "bacon --prefs", "^%s*(.-)%s*$", "%1")
+  local source_file = vim.fn.stdpath "config" .. "/prefs.toml"
+  -- M.copy_file(source_file, target_file)
+  -- local file_exist = M.file_exists(target_file)
+  -- if not file_exist then M.copy_file(source_file, target_file) end
+end
+
 ---@param snippet string
 ---@param fn fun(placeholder:Placeholder):string
 ---@return string
@@ -458,7 +481,10 @@ function M.create_launch_json()
     "node",
     "rust",
     "python",
-  }, { prompt = "Select Language Debug Template", default = "go" }, function(select)
+    "chrome",
+    "angular",
+    "nextjs",
+  }, { prompt = "Select Language Debug Template: ", default = "go" }, function(select)
     if not select then return end
     if select == "go" then
       local source_file = vim.fn.stdpath "config" .. "/.vscode/go_launch.json"
@@ -473,6 +499,17 @@ function M.create_launch_json()
       M.get_tasks_json_by_source_file(source_file)
     elseif select == "python" then
       local source_file = vim.fn.stdpath "config" .. "/.vscode/python_launch.json"
+      M.get_launch_json_by_source_file(source_file)
+    elseif select == "chrome" then
+      local source_file = vim.fn.stdpath "config" .. "/.vscode/chrome_launch.json"
+      M.get_launch_json_by_source_file(source_file)
+    elseif select == "angular" then
+      local source_file = vim.fn.stdpath "config" .. "/.vscode/angular_launch.json"
+      M.get_launch_json_by_source_file(source_file)
+      source_file = vim.fn.stdpath "config" .. "/.vscode/angular_tasks.json"
+      M.get_tasks_json_by_source_file(source_file)
+    elseif select == "nextjs" then
+      local source_file = vim.fn.stdpath "config" .. "/.vscode/nextjs_launch.json"
       M.get_launch_json_by_source_file(source_file)
     end
   end)
@@ -572,7 +609,10 @@ end
 function M.remove_keymap(mode, key)
   for _, map in pairs(vim.api.nvim_get_keymap(mode)) do
     ---@diagnostic disable-next-line: undefined-field
-    if map.lhs == key then vim.api.nvim_del_keymap(mode, key) end
+    if map.lhs == key then
+      vim.api.nvim_del_keymap(mode, key)
+      return map
+    end
   end
 end
 
@@ -616,13 +656,7 @@ function M.toggle_lazy_git()
         border = "none",
       },
       on_open = function() M.remove_keymap("t", "<Esc>") end,
-      on_close = function()
-        -- WARNING: remove this after https://github.com/lewis6991/gitsigns.nvim/issues/1127 closed.
-        if require("astrocore").is_available "gitsigns.nvim" then
-          vim.schedule(function() vim.cmd "Gitsign reset_base" end)
-        end
-        vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { silent = true, noremap = true })
-      end,
+      on_close = function() vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { silent = true, noremap = true }) end,
       on_exit = function() end,
     }
   end
@@ -651,6 +685,22 @@ function M.list_remove_unique(lst, vals)
     end
   end
   return lst
+end
+
+-- optimized treesitter foldexpr for Neovim >= 0.10.0
+function M.foldexpr()
+  local buf = vim.api.nvim_get_current_buf()
+  if vim.b[buf].ts_folds == nil then
+    -- as long as we don't have a filetype, don't bother
+    -- checking if treesitter is available (it won't)
+    if vim.bo[buf].filetype == "" then return "0" end
+    if vim.bo[buf].filetype:find "dashboard" then
+      vim.b[buf].ts_folds = false
+    else
+      vim.b[buf].ts_folds = pcall(vim.treesitter.get_parser, buf)
+    end
+  end
+  return vim.b[buf].ts_folds and vim.treesitter.foldexpr() or "0"
 end
 
 return M

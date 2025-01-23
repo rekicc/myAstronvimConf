@@ -70,6 +70,10 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     enabled = false,
   },
+  {
+    "rebelot/heirline.nvim",
+    opts = function(_, opts) opts.statuscolumn = false end,
+  },
   { "rcarriga/nvim-notify", enabled = false },
   { "NMAC427/guess-indent.nvim", enabled = false },
   { "kevinhwang91/nvim-ufo", enabled = false },
