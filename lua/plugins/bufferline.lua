@@ -11,8 +11,8 @@ return {
         local get_icon = require("astroui").get_icon
         local maps = opts.mappings or {}
         maps.n["<Leader>b"] = { name = get_icon("Tab", 1, true) .. "Buffers" }
-        maps.n["]b"] = { function() require("bufferline.commands").cycle(vim.v.count1) end, desc = "Next buffer" }
-        maps.n["[b"] = { function() require("bufferline.commands").cycle(-vim.v.count1) end, desc = "Previous buffer" }
+        maps.n["<Tab>"] = { function() require("bufferline.commands").cycle(vim.v.count1) end, desc = "Next buffer" }
+        maps.n["<S-Tab>"] = { function() require("bufferline.commands").cycle(-vim.v.count1) end, desc = "Previous buffer" }
         maps.n[">b"] =
           { function() require("bufferline.commands").move(vim.v.count1) end, desc = "Move buffer tab right" }
         maps.n["<b"] =
