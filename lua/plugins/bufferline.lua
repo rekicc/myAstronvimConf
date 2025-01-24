@@ -103,6 +103,10 @@ return {
         local icon, hl, _ = mini_icons.get("filetype", opts.filetype)
         return icon, hl
       end,
+      buffer_close_icon = "󰅖",
+      indicator = {
+        style = "none",
+      },
     },
   },
 }
