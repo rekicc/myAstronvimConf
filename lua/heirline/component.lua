@@ -99,4 +99,42 @@ function M.ruler(opts)
   return M.builder(status_utils.setup_providers(opts, { "ruler", "select" }))
 end
 
+--- 显示输入的按键
+function M.showcmd(opts)
+  opts = extend_tbl({
+    provider = ":%3.5(%S%)",
+  }, opts)
+  return M.builder(status_utils.setup_providers(opts, { "showcmd" }))
+end
+
+--- 显示工作目录
+function M.workdir(opts)
+  local localinit = function(self)
+    self.icon = (vim.fn.haslocaldir(0) == 1 and "l" or "g") .. " " .. " "
+    local cwd = vim.fn.getcwd(0)
+    self.cwd = vim.fn.fnamemodify(cwd, ":~")
+  end
+  opts = extend_tbl({
+    flexible = 1,
+    hl = { fg = "blue", bold = true },
+    init = localinit,
+    provider = function(self)
+      local trail = self.cwd:sub(-1) == "/" and "" or "/"
+      return self.icon .. self.cwd .. trail .. " "
+    end,
+    {
+      -- evaluates to the shortened path
+      provider = function(self)
+        local cwd = vim.fn.pathshorten(self.cwd)
+        local trail = self.cwd:sub(-1) == "/" and "" or "/"
+        return self.icon .. cwd .. trail .. " "
+      end,
+    },
+    {
+      -- evaluates to "", hiding the component
+      provider = "",
+    },
+  }, opts)
+  return M.builder(status_utils.setup_providers(opts, { "workdir" }))
+end
 return M
