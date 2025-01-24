@@ -14,7 +14,7 @@ return {
   branch = "v3",
   opts = {
     -- change colorscheme
-    colorscheme = "onedark_dark",
+    colorscheme = "nvchad",
   },
 }
 

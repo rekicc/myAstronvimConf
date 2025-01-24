@@ -17,4 +17,9 @@ return {
       end,
     },
   },
+  opts = {
+    code_blocks = {
+      hl = "none"
+    },
+  },
 }

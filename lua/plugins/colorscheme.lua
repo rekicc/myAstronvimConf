@@ -1,6 +1,7 @@
 return {
   {
     "olimorris/onedarkpro.nvim",
+    enabled = false,
     opts = {
       highlights = {
         --- 弹出窗口中的选中项

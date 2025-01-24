@@ -76,7 +76,7 @@ return {
       local status = require "astroui.status"
       opts.statusline = {
         -- default highlight for the entire statusline
-        hl = { fg = "fg", bg = "bg" },
+        hl = { fg = "fg", bg = "file_info_bg" },
         -- each element following is a component in astroui.status module
 
         -- add the vim mode component
@@ -141,44 +141,52 @@ return {
         -- add a component for the current git branch if it exists and use no separator for the sections
         status.component.git_branch {
           git_branch = { padding = { left = 1 } },
-          surround = { separator = "none" },
+          surround = { separator = "none", color = "file_info_bg" },
         },
         -- add a component for the current git diff if it exists and use no separator for the sections
         status.component.git_diff {
           padding = { left = 1 },
-          surround = { separator = "none" },
+          surround = { separator = "none", color = "file_info_bg" },
         },
         -- fill the rest of the statusline
         -- the elements after this will appear in the middle of the statusline
         status.component.fill(),
-        status.component.cmd_info(),
+        status.component.cmd_info {
+          hl = { fg = "#abb2af" },
+          surround = { separator = "none", color = "file_info_bg" },
+        },
         -- add a component to display if the LSP is loading, disable showing running client names, and use no separator
         status.component.lsp {
           lsp_client_names = false,
-          surround = { separator = "none", color = "bg" },
+          hl = { fg = "#abb2af" },
+          surround = { separator = "none", color = "file_info_bg" },
         },
         -- fill the rest of the statusline
         -- the elements after this will appear on the right of the statusline
         status.component.fill(),
         -- add a component for the current diagnostics if it exists and use the right separator for the section
         status.component.diagnostics {
-          surround = { separator = "none" },
+          hl = { fg = "#abb2af" },
           padding = { right = 1 },
+          surround = { separator = "none", color = "file_info_bg" },
         },
         -- add a component to display LSP clients, disable showing LSP progress, and use the right separator
         status.component.lsp {
+          hl = { fg = "#abb2af" },
           lsp_progress = false,
-          surround = { separator = "none" },
+          surround = { separator = "none", color = "file_info_bg" },
           lsp_client_names = {
             icon = { padding = { right = 1 } },
           },
         },
         require("heirline.component").overseer {},
         status.component.virtual_env {
+          hl = { fg = "#abb2af" },
           virtual_env = {
             icon = { kind = "VirtualEnv", padding = { right = 1 } },
             padding = { right = 1 },
           },
+          surround = { separator = "none", color = "file_info_bg" },
         },
         -- NvChad has some nice icons to go along with information, so we can create a parent component to do this
         -- all of the children of this table will be treated together as a single component
@@ -195,7 +203,7 @@ return {
               -- hl = { fg = "bg" },
               hl = { fg = "#000000", bold = true },
               -- use the right separator and define the background color
-              surround = { separator = "right", color = "folder_icon_bg" },
+              surround = { separator = "right", color = "#e06c75" },
             },
             -- add a file information component and only show the current working directory name
             status.component.file_info {
@@ -210,6 +218,7 @@ return {
               file_icon = false,
               file_modified = false,
               file_read_only = false,
+              hl = { fg = "#e06c75" },
               -- use no separator for this part but define a background color
               surround = {
                 separator = "none",

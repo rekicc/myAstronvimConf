@@ -1,7 +1,7 @@
 -- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
 -- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
 --
--- vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
 --
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
@@ -21,8 +21,8 @@ end
 require "lazy_setup"
 -- require "polish"
 
--- for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
---   dofile(vim.g.base46_cache .. v)
--- end
---
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+  dofile(vim.g.base46_cache .. v)
+end
+
 vim.g.python3_host_prog = vim.fn.expand "~/.local/pipx/shared/bin/python3"
