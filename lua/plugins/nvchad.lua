@@ -13,4 +13,6 @@ return {
 
   "nvchad/volt", -- optional, needed for theme switcher
   -- or just use Telescope themes
+  { "nvzone/minty", cmd = { "Shades", "Huefy" } },
+  { "nvzone/menu", lazy = true },
 }
