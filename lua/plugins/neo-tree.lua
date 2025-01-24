@@ -125,9 +125,9 @@ end
 ---@type LazySpec
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  dependencies = {
-    { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
-  },
+  -- dependencies = {
+  --   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
+  -- },
   opts = function(_, opts)
     opts.event_handlers = opts.event_handlers or {}
     local neo_tree_events = require "neo-tree.events"
