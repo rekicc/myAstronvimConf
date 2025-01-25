@@ -129,6 +129,18 @@ return {
   --   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   -- },
   opts = function(_, opts)
+    -- 使用snacks进行lsp文件重命名
+    local function on_move(data)
+      local Snacks = require "snacks"
+      Snacks.rename.on_rename_file(data.source, data.destination)
+    end
+    local events = require "neo-tree.events"
+    opts.event_handlers = opts.event_handlers or {}
+    vim.list_extend(opts.event_handlers, {
+      { event = events.FILE_MOVED, handler = on_move },
+      { event = events.FILE_RENAMED, handler = on_move },
+    })
+
     opts.event_handlers = opts.event_handlers or {}
     local neo_tree_events = require "neo-tree.events"
     return require("astrocore").extend_tbl(opts, {

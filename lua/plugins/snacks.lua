@@ -11,7 +11,7 @@ return {
     opts = {
       bigfile = { enabled = true },
       input = { enabled = true },
-      debug = { enabled = true },
+      debug = { enabled = false },
       indent = {
         enabled = true,
         filter = function(buf)
@@ -29,6 +29,8 @@ return {
       dim = { enabled = true },
       notify = { enabled = true },
       picker = { enabled = true },
+      words = { enabled = true },
+      profiler = { enabled = true },
       statuscolumn = {
         enabled = true,
         left = { "mark", "sign" },
@@ -62,6 +64,42 @@ return {
         maps.n["<Leader>fk"] = {
           function() sn.picker.keymaps() end,
           desc = "find keymaps",
+        }
+        maps.n["]b"] = {
+          function() sn.words.jump(1, false) end,
+          desc = "go forward one word",
+        }
+        maps.n["[b"] = {
+          function() sn.words.jump(-1, false) end,
+          desc = "go backword one word",
+        }
+        maps.n["<Leader>fp"] = {
+          function() sn.picker.projects() end,
+          desc = "find projects",
+        }
+        -- maps.n["<Leader>fl"] = {
+        --   function() sn.picker.cliphist() end,
+        --   desc = "find clipboard history",
+        -- }
+        maps.n["<Leader>fL"] = {
+          function() sn.picker.lines() end,
+          desc = "find lines",
+        }
+        maps.n["<Leader>fH"] = {
+          function() sn.picker.highlights() end,
+          desc = "find highlights",
+        }
+        maps.n["<Leader>fi"] = {
+          function() sn.picker.icons() end,
+          desc = "find icons",
+        }
+        maps.n["<Leader>fs"] = {
+          function() sn.picker.smart() end,
+          desc = "smart find",
+        }
+        maps.n["<Leader>fu"] = {
+          function() sn.picker.undo() end,
+          desc = "find undo",
         }
       end,
     },
