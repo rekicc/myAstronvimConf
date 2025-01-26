@@ -11,10 +11,8 @@ return {
     build = function() require("base46").load_all_highlights() end,
   },
 
-  { "nvzone/volt", lazy = true}, -- optional, needed for theme switcher
+  { "nvzone/volt", lazy = true }, -- optional, needed for theme switcher
   -- or just use Telescope themes
-  { "nvzone/minty", cmd = { "Shades", "Huefy" },
-    dependance = {"nvzone/volt"}
-  },
+  { "nvzone/minty", cmd = { "Shades", "Huefy" }, dependance = { "nvzone/volt" } },
   { "nvzone/menu", lazy = true },
 }
