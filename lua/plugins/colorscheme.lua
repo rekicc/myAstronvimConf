@@ -53,4 +53,8 @@ return {
   { "folke/tokyonight.nvim", opts = {
     transparent = false,
   }, lazy = true },
+  {
+    "dgox16/oldworld.nvim",
+    lazy = true,
+  },
 }
