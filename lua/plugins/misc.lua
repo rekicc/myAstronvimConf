@@ -37,7 +37,7 @@ return {
   },
 
   --- customize alpha options
-  { "goolord/alpha-nvim", enabled = true },
+  { "goolord/alpha-nvim", enabled = false },
 
   { "andweeb/presence.nvim", enabled = false },
 

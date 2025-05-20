@@ -61,10 +61,6 @@ return {
           end,
           desc = "Toggle dim",
         }
-        maps.n["<Leader>fk"] = {
-          function() sn.picker.keymaps() end,
-          desc = "find keymaps",
-        }
         maps.n["]b"] = {
           function() sn.words.jump(1, false) end,
           desc = "go forward one word",

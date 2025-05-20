@@ -10,11 +10,17 @@ return {
   "AstroNvim/astroui",
   ---@type AstroUIOpts
 
-  version = false,
-  branch = "v3",
+  -- version = false,
+  -- branch = "v3",
   opts = {
     -- change colorscheme
     colorscheme = "nvchad",
+    folding = {
+      -- whether a buffer should have folding can be true/false for global enable/disable or fun(bufnr:integer):boolean
+      enabled = function(bufnr) return require("astrocore.buffer").is_valid(bufnr) end,
+      -- a priority list of fold methods to try using, available methods are "lsp", "treesitter", and "indent"
+      methods = { "lsp", "treesitter", "indent" },
+    },
   },
 }
 
