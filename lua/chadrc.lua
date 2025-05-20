@@ -28,7 +28,7 @@ local options = {
     telescope = { style = "borderless" }, -- borderless / bordered
 
     statusline = {
-      enabled = false,
+      enabled = true,
     },
 
     -- lazyload it when there are 1+ buffers
