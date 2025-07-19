@@ -7,6 +7,8 @@ local options = {
       Visual = { bg = "#063870" },
       LineNr = { fg = "#54950d" },
       CursorLineNr = { fg = "#e06c75" },
+      Comment = { italic = true },
+      Conditional = { italic = true },
     },
     integrations = {},
     changed_themes = {},
