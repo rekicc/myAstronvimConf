@@ -39,4 +39,4 @@ for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
   dofile(vim.g.base46_cache .. v)
 end
 
-vim.g.python3_host_prog = vim.fn.expand "~/.local/pipx/shared/bin/python3"
+vim.g.python3_host_prog = vim.fn.expand "~/.local/share/pipx/shared/bin/python3"
