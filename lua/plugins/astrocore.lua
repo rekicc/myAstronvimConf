@@ -17,7 +17,7 @@ return {
       large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = false, -- enable autopairs at start
       cmp = true, -- enable completion at start
-      diagnostics = { virtual_text = true, virtual_lines = false}, -- diagnostic  setting on startup
+      diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic  setting on startup
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
@@ -61,7 +61,7 @@ return {
         foldtext = "",
         -- foldlevel = 99,
         statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]],
-        showcmdloc = 'statusline'
+        showcmdloc = "statusline",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
