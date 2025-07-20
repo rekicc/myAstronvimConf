@@ -22,10 +22,10 @@ return {
         virtual_text = "italic",
         comments = "italic",
       },
-      -- options = {
-      --   transparency = true,
-      --   -- highlight_inactive_windows = true,
-      -- },
+      options = {
+        transparency = true,
+        -- highlight_inactive_windows = true,
+      },
     },
   },
   {
