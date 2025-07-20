@@ -62,6 +62,8 @@ return {
         -- foldlevel = 99,
         statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]],
         showcmdloc = "statusline",
+        shiftwidth = 4,
+        tabstop = 4,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
