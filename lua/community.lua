@@ -25,4 +25,6 @@ return {
 
   --- 关闭nvim-dap自动加载
   -- { import = "astrocommunity.utility.mason-tool-installer-nvim" },
+
+  { import = "astrocommunity.pack.java" },
 }
