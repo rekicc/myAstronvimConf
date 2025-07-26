@@ -196,7 +196,7 @@ return {
       nerd_font_variant = "mono",
     },
     signature = {
-      enabled = false,
+      enabled = true,
       trigger = {
         blocked_trigger_characters = {},
         blocked_retrigger_characters = {},
