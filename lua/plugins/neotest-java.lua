@@ -1,7 +1,7 @@
 -- if true then return {} end
 return {
   {
-    "nvim-neotest/neotest-java", -- Java 测试适配器
+    "rcasia/neotest-java", -- Java 测试适配器
     ft = "java",
     enabled = vim.fn.executable "java" == 1,
     dependencies = {
