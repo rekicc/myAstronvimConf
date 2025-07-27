@@ -1,6 +1,6 @@
 --- 来源：https://github.com/chaozwn/astronvim_user/blob/astro_v4/lua/plugins/pack-go.lua
 
--- if truen then return {} end
+if true then return {} end
 
 --TODO: https://github.com/golang/go/issues/60903
 local function preview_stack_trace()
@@ -197,19 +197,19 @@ return {
     opts = {},
   },
   {
-    "nvim-neotest/neotest",
-    optional = true,
+    "nvim-neotest/neotest-go",
+    ft = "go",
+    enabled = vim.fn.executable "go" == 1,
     dependencies = {
       {
-        "nvim-neotest/neotest-go",
-        ft = "go",
-        enabled = vim.fn.executable "go" == 1,
+        "nvim-neotest/neotest",
+        optional = true,
+        opts = function(_, opts)
+          if not opts.adapters then opts.adapters = {} end
+          table.insert(opts.adapters, require "neotest-go"(require("astrocore").plugin_opts "neotest-go"))
+        end,
       },
     },
-    opts = function(_, opts)
-      if not opts.adapters then opts.adapters = {} end
-      table.insert(opts.adapters, require "neotest-go"(require("astrocore").plugin_opts "neotest-go"))
-    end,
   },
   {
     "chaozwn/goctl.nvim",

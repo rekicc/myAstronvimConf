@@ -1,6 +1,6 @@
 --- 来源：https://github.com/chaozwn/astronvim_user/blob/astro_v4/lua/plugins/pack-python.lua
 
--- if truen then return {} end
+if true then return {} end
 
 local utils = require "astrocore"
 -- print(vim.fn.stdpath "data" .. "/lazy/rust-prettifier-for-lldb/rust_prettifier_for_lldb.py")
