@@ -26,6 +26,17 @@ return {
       "nvim-neotest/nvim-nio",
       "theHamsta/nvim-dap-virtual-text",
     },
+    specs = {
+      ---@type AstroCoreOpts
+      "AstroNvim/astrocore",
+      opts = function(_, opts)
+        local maps = opts.mappings
+        maps.n["<Leader>d" .. "f"] = {
+          function() require("dapui").float_element "console" end,
+          desc = "Open the console window",
+        }
+      end,
+    },
     -- stylua: ignore
       -- keys = {
       --   { "<leader>du", function() require("dapui").toggle {} end, desc = "Dap UI", },
