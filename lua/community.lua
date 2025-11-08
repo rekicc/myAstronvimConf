@@ -18,8 +18,6 @@ return {
   --- blink-cmp补全插件
   -- { import = "astrocommunity.completion.blink-cmp" },
 
-  { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
-
   --- 支持.vscode/launch.json的json5语法
   { import = "astrocommunity.utility.lua-json5" },
 
