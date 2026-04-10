@@ -8,8 +8,6 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
-  -- version = false,
-  -- branch = "v2",
   ---@type AstroCoreOpts
   opts = {
     -- Configure core features of AstroNvim
@@ -17,7 +15,7 @@ return {
       large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = false, -- enable autopairs at start
       cmp = true, -- enable completion at start
-      diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic  setting on startup
+      diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic settings on startup
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
@@ -26,6 +24,13 @@ return {
       virtual_text = { prefix = "" },
       underline = true,
       update_in_insert = false,
+    },
+    -- passed to `vim.filetype.add`
+    filetypes = {
+      -- see `:h vim.filetype.add` for usage
+      pattern = {
+        ["/home/reki/Workspace/Racket/*"] = "scheme",
+      },
     },
     -- vim options can be configured here
     options = {
@@ -82,6 +87,20 @@ return {
       -- first key is the mode
       n = {
         -- second key is the lefthand side of the map
+
+        -- navigate buffer tabs
+        ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+
+        -- mappings seen under group name "Buffer"
+        ["<Leader>bd"] = {
+          function()
+            require("astroui.status.heirline").buffer_picker(
+              function(bufnr) require("astrocore.buffer").close(bufnr) end
+            )
+          end,
+          desc = "Close buffer from tabline",
+        },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
