@@ -40,10 +40,17 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+        "racket_langserver",
     },
     -- customize language server configuration passed to `vim.lsp.config`
     -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
+      ---@type vim.lsp.Config
+      racket_langserver = {
+        cmd = { "racket", "--lib", "racket-langserver" },
+        filetypes = { "racket", "scheme" },
+        root_markers = { ".git" },
+      },
       -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
     },
     -- customize how language servers are attached
