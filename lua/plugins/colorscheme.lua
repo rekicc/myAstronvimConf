@@ -17,6 +17,9 @@ return {
       --   LspInlayHint = { fg = "#999999" },
       --   SignColumn = { bg = "none" },
       -- },
+      highlights = {
+        MatchParen = { bg = "#5c6370", bold = true },
+      },
       styles = {
         conditionals = "italic",
         virtual_text = "italic",
