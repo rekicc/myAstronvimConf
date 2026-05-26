@@ -28,9 +28,9 @@ return {
     -- passed to `vim.filetype.add`
     filetypes = {
       -- see `:h vim.filetype.add` for usage
-      pattern = {
-        ["/home/reki/Workspace/Racket/*"] = "scheme",
-      },
+      -- pattern = {
+      --   ["/home/reki/Workspace/Racket/*"] = "scheme",
+      -- },
     },
     -- vim options can be configured here
     options = {
@@ -131,6 +131,17 @@ return {
                 desc = "Quit buffer",
               })
             end)
+          end,
+        },
+      },
+      insert_lambda_symbol = {
+        {
+          event = "FileType",
+          pattern = { "racket", "lisp", "scheme", "clojure" },
+          callback = function()
+            -- 在插入模式 (i) 下，按下 <C-l> (Ctrl+L)，直接输出 λ
+            -- { buffer = true } 保证这只在当前 Racket 文件里有效
+            vim.keymap.set("i", "<C-l>", "λ", { buffer = true, desc = "Insert Lambda symbol" })
           end,
         },
       },
